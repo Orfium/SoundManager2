@@ -2040,17 +2040,7 @@ function SoundManager(smURL, smID) {
           };
 
           // HTML5 needs to at least have "canplay" fired before seeking.
-          if (s.isHTML5 && !s._html5_canplay) {
-
-            // this hasn't been loaded yet. load it first, and then do this again.
-            sm2._wD(fN + 'Beginning load for non-zero offset case');
-
-            s.load({
-              // note: custom HTML5-only event added for from/to implementation.
-              _oncanplay: onready
-            });
-
-          } else if (!s.isHTML5 && !s.loaded && (!s.readyState || s.readyState !== 2)) {
+          if (!s.isHTML5 && !s.loaded && (!s.readyState || s.readyState !== 2)) {
 
             // to be safe, preload the whole thing in Flash.
 

@@ -828,11 +828,7 @@ function SoundManager(smURL, smID) {
             s._iO = mixin(options, s._iO);
             s.play(s._iO);
           };
-          if (s.isHTML5 && !s._html5_canplay) {
-            s.load({
-              _oncanplay: onready
-            });
-          } else if (!s.isHTML5 && !s.loaded && (!s.readyState || s.readyState !== 2)) {
+          if (!s.isHTML5 && !s.loaded && (!s.readyState || s.readyState !== 2)) {
             s.load({
               onload: onready
             });
